@@ -1,0 +1,16 @@
+Clonar:
+git clone  SergioVelaAlfajarin/prEntornosEv3
+
+
+Actualizar
+cd *carpeta del repositorio*
+git fetch
+
+
+Commit (guardar cambios localemnte)
+cd *carpeta del repositorio*
+git commit
+
+Pull (subir cambios a github)
+cd *carpeta del repositorio*
+git pull
