@@ -31,6 +31,9 @@ public class CuentaNetflixTest {
     
     @Before
     public void setUp() {
+        
+        System.out.println("Piola");
+        
     }
     
     @After
