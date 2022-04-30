@@ -1,40 +1,88 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package TestGestor;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import gestores.GestorUsuario;
+import modelo.CuentaBanco;
+import modelo.CuentaNetflix;
+import modelo.Usuario;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
-/**
- *
- * @author alumno
- */
+
 public class GestorUsuarioTest {
-    
-    public GestorUsuarioTest() {
+
+
+    @Test
+    public void compruebaQuePuedeBorrarUnUsuario(){
+
+        Usuario a = new Usuario("Paco", "Paquito");
+        GestorUsuario.addUsuario(a);
+        int id = a.getID();
+
+        int longitudantes = GestorUsuario.sacaLongitudArray();
+        GestorUsuario.borraUsuario(id);
+        int longitudespues = GestorUsuario.sacaLongitudArray();
+
+        assertEquals(longitudantes-1,longitudespues);
     }
-    
-    @BeforeClass
-    public static void setUpClass() {
+
+    @Test
+    public void compruebaQuePuedeMeterUnUsuario(){
+
+        Usuario a = new Usuario("Paco", "Paquito");
+        GestorUsuario.addUsuario(a);
+
+        int longitudantes = GestorUsuario.sacaLongitudArray();
+        GestorUsuario.addUsuario(a);
+        int longitudespues = GestorUsuario.sacaLongitudArray();
+
+        assertEquals(longitudantes+1,longitudespues);
     }
-    
-    @AfterClass
-    public static void tearDownClass() {
+
+    @Test
+    public void compruebaQuePuedeBuscarUnUsuario(){
+
+        Usuario a = new Usuario("Paco", "Paquito");
+        GestorUsuario.addUsuario(a);
+
+        Usuario usuarioBuscado =  GestorUsuario.buscaUsuario("Paco Paquito");
+
+        assertEquals(a,usuarioBuscado);
+
     }
-    
-    @Before
-    public void setUp() {
+
+    @Test
+    public void compruebaNumCuentaNetflixExiste(){
+
+        Usuario a = new Usuario("Paco", "Paquito");
+        GestorUsuario.addUsuario(a);
+
+        CuentaNetflix cn = new CuentaNetflix(a);
+
+        assertNotEquals(cn.getNumCuenta(),0);
+
+
+
     }
-    
-    @After
-    public void tearDown() {
+
+    @Test
+    public void compruebaQueElIBANExiste(){
+        Usuario u = new Usuario("Paco", "Paquito");
+        CuentaBanco cb = new CuentaBanco(u);
+        assertNotEquals(cb.getIBAN().length(),0);
+
     }
-    
+
+    @Test
+    public void compruebaIDUsuarioExiste(){
+        Usuario u = new Usuario("Paco", "Paquito");
+       int id =  u.getID();
+
+       assertNotNull(String.valueOf(id),0);
+
+    }
+
+
+
 }
