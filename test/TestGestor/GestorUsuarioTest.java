@@ -1,4 +1,3 @@
-
 package TestGestor;
 
 import gestores.GestorUsuario;
@@ -9,12 +8,10 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-
 public class GestorUsuarioTest {
 
-
     @Test
-    public void compruebaQuePuedeBorrarUnUsuario(){
+    public void compruebaQuePuedeBorrarUnUsuario() {
 
         Usuario a = new Usuario("Paco", "Paquito");
         GestorUsuario.addUsuario(a);
@@ -24,11 +21,11 @@ public class GestorUsuarioTest {
         GestorUsuario.borraUsuario(id);
         int longitudespues = GestorUsuario.sacaLongitudArray();
 
-        assertEquals(longitudantes-1,longitudespues);
+        assertEquals(longitudantes - 1, longitudespues);
     }
 
     @Test
-    public void compruebaQuePuedeMeterUnUsuario(){
+    public void compruebaQuePuedeMeterUnUsuario() {
 
         Usuario a = new Usuario("Paco", "Paquito");
         GestorUsuario.addUsuario(a);
@@ -37,52 +34,48 @@ public class GestorUsuarioTest {
         GestorUsuario.addUsuario(a);
         int longitudespues = GestorUsuario.sacaLongitudArray();
 
-        assertEquals(longitudantes+1,longitudespues);
+        assertEquals(longitudantes + 1, longitudespues);
     }
 
     @Test
-    public void compruebaQuePuedeBuscarUnUsuario(){
+    public void compruebaQuePuedeBuscarUnUsuario() {
 
         Usuario a = new Usuario("Paco", "Paquito");
         GestorUsuario.addUsuario(a);
 
-        Usuario usuarioBuscado =  GestorUsuario.buscaUsuario("Paco Paquito");
+        Usuario usuarioBuscado = GestorUsuario.buscaUsuario("Paco Paquito");
 
-        assertEquals(a,usuarioBuscado);
+        assertEquals(a, usuarioBuscado);
 
     }
 
     @Test
-    public void compruebaNumCuentaNetflixExiste(){
+    public void compruebaNumCuentaNetflixExiste() {
 
         Usuario a = new Usuario("Paco", "Paquito");
         GestorUsuario.addUsuario(a);
 
         CuentaNetflix cn = new CuentaNetflix(a);
 
-        assertNotEquals(cn.getNumCuenta(),0);
-
-
+        assertNotEquals(cn.getNumCuenta(), 0);
 
     }
 
     @Test
-    public void compruebaQueElIBANExiste(){
+    public void compruebaQueElIBANExiste() {
         Usuario u = new Usuario("Paco", "Paquito");
         CuentaBanco cb = new CuentaBanco(u);
-        assertNotEquals(cb.getIBAN().length(),0);
+        assertNotEquals(cb.getIBAN().length(), 0);
 
     }
 
     @Test
-    public void compruebaIDUsuarioExiste(){
+    public void compruebaIDUsuarioExiste() {
         Usuario u = new Usuario("Paco", "Paquito");
-       int id =  u.getID();
+        int id = u.getID();
 
-       assertNotNull(String.valueOf(id),0);
+        assertNotNull(String.valueOf(id), 0);
 
     }
-
-
 
 }

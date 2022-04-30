@@ -17,5 +17,5 @@ import static org.junit.Assert.*;
  * @author alumno
  */
 public class TrabajoTest {
-    
+
 }

@@ -68,5 +68,8 @@ public class GestorUsuario {
         return false;
     }
 
+    public static int sacaLongitudArray() {
+        return listaUsuario.size();
+    }
 
 }

@@ -17,27 +17,25 @@ import static org.junit.Assert.*;
  * @author alumno
  */
 public class CuentaNetflixTest {
-    
+
     public CuentaNetflixTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
-        
-        System.out.println("Piola");
-        
+
     }
-    
+
     @After
     public void tearDown() {
     }
-    
+
 }
