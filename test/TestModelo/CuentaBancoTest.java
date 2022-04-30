@@ -18,12 +18,15 @@ import org.junit.Test;
 public class CuentaBancoTest {
     
     @Test
-    void compruebaCreacionCuentasBancoCorrecta(){
+    public void compruebaCreacionCuentasBancoCorrecta(){
         
         Usuario user = new Usuario("Sergio", "vela");
         
         CuentaBanco cb = new CuentaBanco(user);
         
+        Usuario[] listtitulares = cb.getListaTitulares();
         
+        assertEquals(user, listtitulares[0]);
+        assertEquals(0, cb.getSaldo(), 0);
     }
 }
