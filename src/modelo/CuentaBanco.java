@@ -21,7 +21,7 @@ public class CuentaBanco {
     private void setFechaCreacion() {
         fechaCreacion = new Date();
     }
-
+ 
     private void genIBAN() {
         do{
             int ibanAleatorio = (int)(Math.random()*1000000);
