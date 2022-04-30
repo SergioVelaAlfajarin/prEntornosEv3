@@ -17,24 +17,26 @@ import static org.junit.Assert.*;
  * @author alumno
  */
 public class GestorUsuarioTest {
-    
+
     public GestorUsuarioTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
+        // Prueba
+        // Prueba2
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
-    
+
 }
