@@ -23,12 +23,14 @@ public class GestorUsuarioTest {
 
     @BeforeClass
     public static void setUpClass() {
+
+        //Pruebacommit
+
     }
 
     @AfterClass
     public static void tearDownClass() {
-        // Prueba
-        // Prueba2
+
     }
 
     @Before
