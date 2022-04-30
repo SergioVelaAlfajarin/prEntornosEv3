@@ -5,7 +5,6 @@ import modelo.CuentaBanco;
 import modelo.CuentaNetflix;
 import modelo.Usuario;
 import static junit.framework.Assert.*;
-import static org.junit.Assert.assertNotEquals;
 import org.junit.Test;
 
 class UsuarioTest {
@@ -29,21 +28,19 @@ class UsuarioTest {
 	}
 
 	@Test
-	void compruebaQueBuscaCorrectamenteUnUsuario(){
-		Usuario u = new Usuario("Paco", "Paquito");
-		GestorUsuario.addUsuario(u);
+	public void addadirCuentaBancoYBorrarCuentaBanco(){
 
-		assertNotNull(GestorUsuario.buscaUsuario ("Paco Paquito"));
-
-	}
-
-	@Test
-	void compruebaQueElIBANExista(){
 		Usuario u = new Usuario("Paco", "Paquito");
 		CuentaBanco cb = new CuentaBanco(u);
-		assertNotEquals(cb.getIBAN().length(),0);
+		u.addCuentaBanco(cb);
+		CuentaBanco[] cuenta = u.getCuentasBanco();
 
+		assertNotNull(cuenta[0]);
+
+		assertEquals(u.getCuentasBanco().length,0);
 	}
+
+
 
 
 
