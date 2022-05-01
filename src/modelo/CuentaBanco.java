@@ -61,6 +61,9 @@ public class CuentaBanco {
     }
 
     public void retiraSaldo(double nSaldo) {
+        if(nSaldo <= 0){
+            throw new IllegalArgumentException("No puedes retirar 0 o menos.");
+        }
         if(saldo <= 0){
             throw new IllegalArgumentException("No puedes retirar mas saldo");
         }

@@ -140,6 +140,13 @@ public class Usuario {
         final Usuario other = (Usuario) obj;
         return this.ID == other.ID;
     }
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "nombre=" + nombre + ", primerApellido=" + primerApellido + ", ID=" + ID + ", profesion=" + profesion + '}';
+    }
+    
+    
     
     
 }
