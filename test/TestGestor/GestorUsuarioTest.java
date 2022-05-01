@@ -71,10 +71,12 @@ public class GestorUsuarioTest {
 
     @Test
     public void compruebaIDUsuarioExiste() {
-        Usuario u = new Usuario("Paco", "Paquito");
-        int id = u.getID();
-
-        assertNotNull(String.valueOf(id), 0);
+        try{
+            Usuario u = new Usuario("Paco", "Paquito");
+            int id = u.getID();
+        }catch(Exception e){
+            fail();
+        }
 
     }
 

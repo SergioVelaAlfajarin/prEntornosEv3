@@ -10,7 +10,7 @@ import org.junit.Test;
 class UsuarioTest {
 
     @Test
-    void addadirCuentaNeflixYBorrarCuentaNetflix() {
+    public void addadirCuentaNeflixYBorrarCuentaNetflix() {
 
         Usuario u = new Usuario("Paco", "Paquito");
         CuentaNetflix c = new CuentaNetflix(u);
