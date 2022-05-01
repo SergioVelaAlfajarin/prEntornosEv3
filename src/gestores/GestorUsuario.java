@@ -7,7 +7,7 @@ import modelo.CuentaBanco;
 import modelo.CuentaNetflix;
 import modelo.Usuario;
 
-public class GestorUsuario {
+public abstract class GestorUsuario {
     private static final ArrayList<Usuario> listaUsuario = new ArrayList<>();
 
     public static void addUsuario(Usuario u) {
