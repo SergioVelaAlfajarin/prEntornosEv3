@@ -5,10 +5,10 @@
  */
 package TestModelo;
 
-import org.junit.After;
-import org.junit.AfterClass;
+import modelo.CuentaBanco;
+import modelo.Trabajo;
+import modelo.Usuario;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -17,70 +17,74 @@ import static org.junit.Assert.*;
  * @author alumno
  */
 public class TrabajoTest {
-Trabajo trabajo1;
+
+    Trabajo trabajo1;
     CuentaBanco cuenta;
     Usuario usuario1;
-    
-    
-    public TestTrabajo() {
-        
+
+    public TrabajoTest() {
+
     }
-    
+
     @Before
     public void setUp() {
-        usuario1 = new Usuario("Paco","Ramirez");
+        usuario1 = new Usuario("Paco", "Ramirez");
         cuenta = new CuentaBanco(usuario1);
-        trabajo1 = new Trabajo("Maderero",1230);
+        trabajo1 = new Trabajo("Maderero", 1230);
     }
-    
+
     @Test
-    public void TestCreacion(){
+    public void TestCreacion() {
         //Estos tests comprueban que el constructor lanze una excepcion en las condiciones adecuadas.
-        try{
-            trabajo1 = new Trabajo(new String(),900);
+        try {
+            trabajo1 = new Trabajo(new String(), 900);
             fail();
-        }catch(IllegalArgumentException e){}
-        
-        try{
-            trabajo1 = new Trabajo("ej",900);
+        } catch (IllegalArgumentException e) {
+        }
+
+        try {
+            trabajo1 = new Trabajo("ej", 900);
             fail();
-        }catch(IllegalArgumentException e){}
-        try{
-            trabajo1 = new Trabajo("Maderero",120);
+        } catch (IllegalArgumentException e) {
+        }
+        try {
+            trabajo1 = new Trabajo("Maderero", 120);
             fail();
-        }catch(IllegalArgumentException e){}
-        try{
-            trabajo1 = new Trabajo(new String(),Double.MAX_VALUE+1);
+        } catch (IllegalArgumentException e) {
+        }
+        try {
+            trabajo1 = new Trabajo(new String(), Double.MAX_VALUE + 1);
             fail();
-        }catch(IllegalArgumentException e){}
+        } catch (IllegalArgumentException e) {
+        }
         //Por ultimo lo incializamos bien
-        trabajo1 = new Trabajo("Maderero",1230);
+        trabajo1 = new Trabajo("Maderero", 1230);
     }
-    
+
     @Test
-    public void TestTrabajar(){
-        
+    public void TestTrabajar() {
+
         //Comprobamos que lanze una excepcion si le pasamos un objeto nulo
-        try{
+        try {
             CuentaBanco cuentaMala = null;
             trabajo1.trabajar(cuentaMala);
             fail();
-        }catch(IllegalArgumentException |NullPointerException e){}
-        
+        } catch (IllegalArgumentException | NullPointerException e) {
+        }
+
         //Comprobamos el comportamiento del metodo
-        
         double saldoBefore = cuenta.getSaldo();
         trabajo1.trabajar(cuenta);
-        double saldoExpected = saldoBefore+trabajo1.getBonusAntiguedad()+trabajo1.getSueldo();
-        assertEquals(saldoExpected,cuenta.getSaldo(),1);
+        double saldoExpected = saldoBefore + trabajo1.getBonusAntiguedad() + trabajo1.getSueldo();
+        assertEquals(saldoExpected, cuenta.getSaldo(), 1);
     }
-    
+
     @Test
-    public void TestAddAntiguedad(){
-        usuario1 = new Usuario("Paco","Ramirez");
+    public void TestAddAntiguedad() {
+        usuario1 = new Usuario("Paco", "Ramirez");
         cuenta = new CuentaBanco(usuario1);
         double salariopre = trabajo1.getBonusAntiguedad();
         trabajo1.addMesAntiguedad();
-        assertEquals(salariopre+100, trabajo1.getBonusAntiguedad(),1);
+        assertEquals(salariopre + 100, trabajo1.getBonusAntiguedad(), 1);
     }
 }
