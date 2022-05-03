@@ -7,7 +7,7 @@ import modelo.Usuario;
 import static junit.framework.Assert.*;
 import org.junit.Test;
 
-class UsuarioTest {
+public class UsuarioTest {
 
     @Test
     public void addadirCuentaNeflixYBorrarCuentaNetflix() {
@@ -23,7 +23,6 @@ class UsuarioTest {
         u.bajaCuentaNetflix(cuenta[0].getNumCuenta());
 
         assertEquals(u.getCuentasNetflix().length, 0);
-
     }
 
     @Test
@@ -36,6 +35,6 @@ class UsuarioTest {
 
         assertNotNull(cuenta[0]);
 
-        assertEquals(u.getCuentasBanco().length, 0);
+        assertEquals(u.getCuentasBanco().length, 1);
     }
 }
