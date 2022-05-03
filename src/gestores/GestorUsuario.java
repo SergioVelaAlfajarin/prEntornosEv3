@@ -36,6 +36,15 @@ public abstract class GestorUsuario {
         return null;
     }
 
+    //Mostrara toda la lista de todos los usuarios del array
+    public static String listarTodosLosUsuarios() {
+
+        StringBuilder mostrarUsuarios = new StringBuilder();
+        for (Usuario u : listaUsuario) {
+            mostrarUsuarios.append(u.toString() + "\n");
+        }
+        return mostrarUsuarios.toString();
+    }
 
     public static boolean compruebaIBANExistente(String IBAN) {
         for(Usuario u: listaUsuario){
