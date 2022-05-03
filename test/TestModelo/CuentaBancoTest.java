@@ -20,6 +20,7 @@ public class CuentaBancoTest {
     public void compruebaCreacionCuentasBancoCorrecta() {
         Usuario user = new Usuario("Sergio", "vela");
         CuentaBanco cb = new CuentaBanco(user);
+        user.addCuentaBanco(cb);
         Usuario[] listtitulares = cb.getListaTitulares();
         assertEquals(user, listtitulares[0]);
         assertEquals(0, cb.getSaldo(), 0);
@@ -35,7 +36,7 @@ public class CuentaBancoTest {
     public void compruebaRetiraDineroFuncionaCorrectamente() {
         Usuario user = new Usuario("Sergio", "vela");
         CuentaBanco cb = new CuentaBanco(user);
-
+        user.addCuentaBanco(cb);
         cb.ingresaSaldo(1000);
         assertEquals(1000, cb.getSaldo(), 0);
 
@@ -67,6 +68,13 @@ public class CuentaBancoTest {
         cb.addTitular(user3);
         cb.addTitular(user4);
         cb.addTitular(user5);
+        
+        user1.addCuentaBanco(cb);
+        user2.addCuentaBanco(cb);
+        user3.addCuentaBanco(cb);
+        user4.addCuentaBanco(cb);
+        user5.addCuentaBanco(cb);
+        
         
         Usuario[] listaUsers1 = new Usuario[]{
             user1,user2,user3,user4,user5
