@@ -105,4 +105,33 @@ public class CuentaNetflix {
         }
         return "El perfil no existe";
     }
+
+    @Override
+    public String toString() {
+        return "titular=" + titular + ", numCuenta=" + numCuenta;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 37 * hash + this.numCuenta;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final CuentaNetflix other = (CuentaNetflix) obj;
+        return this.numCuenta == other.numCuenta;
+    }
+    
+    
 }
