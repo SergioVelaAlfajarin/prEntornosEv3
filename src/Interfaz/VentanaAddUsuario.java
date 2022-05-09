@@ -6,8 +6,6 @@
 package Interfaz;
 
 import java.awt.Color;
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 
 /**
@@ -20,9 +18,9 @@ public class VentanaAddUsuario extends javax.swing.JDialog {
         super();
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         getContentPane().setBackground(new Color(90,37,193));
-        setLocationRelativeTo(null);
         setUndecorated(true);
         initComponents();
+        setLocationRelativeTo(null);
         setVisible(true);
     }
 

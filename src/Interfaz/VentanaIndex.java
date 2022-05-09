@@ -119,7 +119,7 @@ public class VentanaIndex extends javax.swing.JFrame {
     }//GEN-LAST:event_SalirButtonActionPerformed
 
     private void gestorUsuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gestorUsuarioButtonActionPerformed
-        // TODO add your handling code here:
+        VentanaGestor V = new VentanaGestor();
     }//GEN-LAST:event_gestorUsuarioButtonActionPerformed
 
     private void altaUsuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altaUsuarioButtonActionPerformed
