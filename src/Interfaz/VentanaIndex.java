@@ -5,6 +5,8 @@
  */
 package Interfaz;
 
+import java.awt.Color;
+
 /**
  *
  * @author alumno
@@ -15,7 +17,11 @@ public class VentanaIndex extends javax.swing.JFrame {
      * Creates new form VentanaIndex
      */
     public VentanaIndex() {
+        setUndecorated(true);
+        getContentPane().setBackground(new Color(90,37,193));
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -27,57 +33,108 @@ public class VentanaIndex extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        PanelContent = new javax.swing.JPanel();
+        gestorUsuarioButton = new javax.swing.JButton();
+        altaUsuarioButton = new javax.swing.JButton();
+        labelNombre = new javax.swing.JLabel();
+        labelImagen = new javax.swing.JLabel();
+        SalirButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(102, 204, 255));
+        setUndecorated(true);
+
+        PanelContent.setBackground(new java.awt.Color(90, 37, 153));
+        PanelContent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        gestorUsuarioButton.setBackground(new java.awt.Color(102, 0, 102));
+        gestorUsuarioButton.setFont(new java.awt.Font("Felix Titling", 1, 10)); // NOI18N
+        gestorUsuarioButton.setForeground(new java.awt.Color(0, 153, 51));
+        gestorUsuarioButton.setText("GESTOR Usuario");
+        gestorUsuarioButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        gestorUsuarioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gestorUsuarioButtonActionPerformed(evt);
+            }
+        });
+        PanelContent.add(gestorUsuarioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 150, 110, 50));
+
+        altaUsuarioButton.setBackground(new java.awt.Color(102, 0, 102));
+        altaUsuarioButton.setFont(new java.awt.Font("Felix Titling", 1, 10)); // NOI18N
+        altaUsuarioButton.setForeground(new java.awt.Color(0, 153, 51));
+        altaUsuarioButton.setText("Añadir Usuario");
+        altaUsuarioButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        altaUsuarioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                altaUsuarioButtonActionPerformed(evt);
+            }
+        });
+        PanelContent.add(altaUsuarioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 110, 50));
+
+        labelNombre.setFont(new java.awt.Font("Georgia", 3, 48)); // NOI18N
+        labelNombre.setForeground(new java.awt.Color(153, 0, 102));
+        labelNombre.setText("GESTIONALITY");
+        PanelContent.add(labelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 410, 50));
+
+        labelImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/ciudadfondo.png"))); // NOI18N
+        PanelContent.add(labelImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 460, 260));
+
+        SalirButton.setText("X");
+        SalirButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalirButtonActionPerformed(evt);
+            }
+        });
+
+        jButton1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jButton1.setText("-");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(PanelContent, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(SalirButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(SalirButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(PanelContent, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaIndex.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaIndex.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaIndex.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaIndex.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void SalirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirButtonActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_SalirButtonActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VentanaIndex().setVisible(true);
-            }
-        });
-    }
+    private void gestorUsuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gestorUsuarioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gestorUsuarioButtonActionPerformed
+
+    private void altaUsuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altaUsuarioButtonActionPerformed
+        VentanaAddUsuario pupUp = new VentanaAddUsuario();
+    }//GEN-LAST:event_altaUsuarioButtonActionPerformed
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PanelContent;
+    private javax.swing.JButton SalirButton;
+    private javax.swing.JButton altaUsuarioButton;
+    private javax.swing.JButton gestorUsuarioButton;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel labelImagen;
+    private javax.swing.JLabel labelNombre;
     // End of variables declaration//GEN-END:variables
 }

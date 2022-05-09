@@ -1,5 +1,6 @@
 package proyectoentornos3ev;
 
+import Interfaz.VentanaIndex;
 import gestores.GestorUsuario;
 import modelo.Usuario;
 
@@ -93,7 +94,10 @@ public class ProyectoEntornos3Ev {
 
 
     public static void main(String[] args) {
-
+        VentanaIndex ventana = new VentanaIndex();
+        ventana.setVisible(true);
+        
+        /*
         int opciones;
         do{
             menu();
@@ -105,7 +109,7 @@ public class ProyectoEntornos3Ev {
                 System.out.println(e.getMessage());
             }
         }while(opciones!=4);
-
+        */
 
     }
 
