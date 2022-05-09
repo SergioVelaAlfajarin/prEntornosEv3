@@ -5,7 +5,11 @@
  */
 package Interfaz;
 
+import gestores.GestorUsuario;
 import java.awt.Color;
+import java.awt.Frame;
+import javax.swing.JOptionPane;
+import modelo.Usuario;
 
 /**
  *
@@ -17,11 +21,10 @@ public class VentanaIndex extends javax.swing.JFrame {
      * Creates new form VentanaIndex
      */
     public VentanaIndex() {
-        setUndecorated(true);
-        getContentPane().setBackground(new Color(90,37,193));
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
         initComponents();
+        getContentPane().setBackground(new Color(90, 37, 193));
         setLocationRelativeTo(null);
+        setVisible(true);
     }
 
     /**
@@ -38,12 +41,15 @@ public class VentanaIndex extends javax.swing.JFrame {
         altaUsuarioButton = new javax.swing.JButton();
         labelNombre = new javax.swing.JLabel();
         labelImagen = new javax.swing.JLabel();
-        SalirButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        header = new javax.swing.JPanel();
+        closeLbl = new javax.swing.JLabel();
+        minLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 204, 255));
         setUndecorated(true);
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PanelContent.setBackground(new java.awt.Color(90, 37, 153));
         PanelContent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -58,7 +64,7 @@ public class VentanaIndex extends javax.swing.JFrame {
                 gestorUsuarioButtonActionPerformed(evt);
             }
         });
-        PanelContent.add(gestorUsuarioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 150, 110, 50));
+        PanelContent.add(gestorUsuarioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 110, 50));
 
         altaUsuarioButton.setBackground(new java.awt.Color(102, 0, 102));
         altaUsuarioButton.setFont(new java.awt.Font("Felix Titling", 1, 10)); // NOI18N
@@ -70,7 +76,7 @@ public class VentanaIndex extends javax.swing.JFrame {
                 altaUsuarioButtonActionPerformed(evt);
             }
         });
-        PanelContent.add(altaUsuarioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 110, 50));
+        PanelContent.add(altaUsuarioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 110, 50));
 
         labelNombre.setFont(new java.awt.Font("Georgia", 3, 48)); // NOI18N
         labelNombre.setForeground(new java.awt.Color(153, 0, 102));
@@ -78,63 +84,118 @@ public class VentanaIndex extends javax.swing.JFrame {
         PanelContent.add(labelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 410, 50));
 
         labelImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/ciudadfondo.png"))); // NOI18N
-        PanelContent.add(labelImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 460, 260));
+        PanelContent.add(labelImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 460, 260));
 
-        SalirButton.setText("X");
-        SalirButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SalirButtonActionPerformed(evt);
+        getContentPane().add(PanelContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 600, 377));
+
+        header.setBackground(new java.awt.Color(153, 0, 255));
+        header.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
+        header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                headerMouseDragged(evt);
+            }
+        });
+        header.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                headerMousePressed(evt);
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jButton1.setText("-");
+        closeLbl.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        closeLbl.setText(" x ");
+        closeLbl.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        closeLbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                closeLblMouseClicked(evt);
+            }
+        });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelContent, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(SalirButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+        minLbl.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        minLbl.setText(" -");
+        minLbl.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minLbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                minLblMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
+        header.setLayout(headerLayout);
+        headerLayout.setHorizontalGroup(
+            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
+                .addGap(0, 556, Short.MAX_VALUE)
+                .addComponent(minLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(closeLbl))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(SalirButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(PanelContent, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE))
+        headerLayout.setVerticalGroup(
+            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(closeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(minLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        getContentPane().add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SalirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirButtonActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_SalirButtonActionPerformed
-
     private void gestorUsuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gestorUsuarioButtonActionPerformed
-        VentanaGestor V = new VentanaGestor();
+        Usuario u = pideUsuario();
+
+        if (u == null) {
+            JOptionPane.showMessageDialog(this, "Introduce el nombre completo de un usuario registrado valido.");
+        } else {
+            VentanaGestor v = new VentanaGestor(this, u);
+            setVisible(false);
+        }
     }//GEN-LAST:event_gestorUsuarioButtonActionPerformed
 
+    private Usuario pideUsuario() {
+        String name =  JOptionPane.showInputDialog(this, "Introduce el nombre completo del usuario.");
+        if(name.equalsIgnoreCase("root")){
+            return new Usuario("usuario", "pruebas");
+        }
+        return GestorUsuario.buscaUsuario(name);
+    }
+
     private void altaUsuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altaUsuarioButtonActionPerformed
-        VentanaAddUsuario pupUp = new VentanaAddUsuario();
+        VentanaAddUsuario v = new VentanaAddUsuario(this);
+        setVisible(false);
     }//GEN-LAST:event_altaUsuarioButtonActionPerformed
 
+    private void closeLblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeLblMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_closeLblMouseClicked
+
+    private void minLblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minLblMouseClicked
+        this.setState(Frame.ICONIFIED);
+    }//GEN-LAST:event_minLblMouseClicked
+
+    private int yMouse, xMouse;
+
+    private void headerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_headerMousePressed
+
+    private void headerMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_headerMouseDragged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelContent;
-    private javax.swing.JButton SalirButton;
     private javax.swing.JButton altaUsuarioButton;
+    private javax.swing.JLabel closeLbl;
     private javax.swing.JButton gestorUsuarioButton;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JPanel header;
     private javax.swing.JLabel labelImagen;
     private javax.swing.JLabel labelNombre;
+    private javax.swing.JLabel minLbl;
     // End of variables declaration//GEN-END:variables
+
 }

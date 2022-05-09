@@ -13,7 +13,7 @@ public class Usuario {
     private final ArrayList<CuentaNetflix> listaCuentasNetflix = new ArrayList<>();
 
 
-    public Usuario(String nombre, String primerApellido) {
+    public Usuario(String nombre, String primerApellido) throws IllegalArgumentException {
         setNombre(nombre);
         setPrimerApellido(primerApellido);
         setProfesion(null);

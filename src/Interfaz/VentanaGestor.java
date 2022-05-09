@@ -6,25 +6,27 @@
 package Interfaz;
 
 import java.awt.Color;
-import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+import java.awt.Frame;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import modelo.Usuario;
 
 /**
  *
  * @author alumno
  */
-public class VentanaGestor extends javax.swing.JDialog {
+public class VentanaGestor extends JFrame {
 
-    /**
-     * Creates new form VentanaGestor
-     */
-    public VentanaGestor() {
-        super();
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        getContentPane().setBackground(new Color(90,37,193));
-        setUndecorated(true);
+    private VentanaIndex e;
+    private Usuario u;
+
+    public VentanaGestor(VentanaIndex e, Usuario u) {
         initComponents();
+        getContentPane().setBackground(new Color(90, 37, 193));
         setLocationRelativeTo(null);
         setVisible(true);
+        this.e = e;
+        this.u = u;
     }
 
     /**
@@ -42,21 +44,29 @@ public class VentanaGestor extends javax.swing.JDialog {
         retiraSaldoButton = new javax.swing.JButton();
         ingresaSaldoButton = new javax.swing.JButton();
         addCuentaBancoButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         panelTrabajo = new javax.swing.JPanel();
         addAntiguedadButton = new javax.swing.JButton();
         trabajarButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         panelUsuario = new javax.swing.JPanel();
         CambiaTrabajoButton = new javax.swing.JButton();
         cambiaNombreButton = new javax.swing.JButton();
+        infoBtn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         panelCuentaNetflix = new javax.swing.JPanel();
         cobrarButton = new javax.swing.JButton();
         addPerfilButton = new javax.swing.JButton();
         addCuentaNetflixButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        header = new javax.swing.JPanel();
+        closeLbl = new javax.swing.JLabel();
+        minLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelContent.setBackground(new java.awt.Color(90, 37, 153));
         panelContent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -84,28 +94,37 @@ public class VentanaGestor extends javax.swing.JDialog {
         addCuentaBancoButton.setForeground(new java.awt.Color(255, 255, 255));
         addCuentaBancoButton.setText("Añadir Cuenta Banco");
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("CUENTA BANCO");
+
         javax.swing.GroupLayout panelCuentaBancoLayout = new javax.swing.GroupLayout(panelCuentaBanco);
         panelCuentaBanco.setLayout(panelCuentaBancoLayout);
         panelCuentaBancoLayout.setHorizontalGroup(
             panelCuentaBancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCuentaBancoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelCuentaBancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(addCuentaBancoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ingresaSaldoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(retiraSaldoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addGroup(panelCuentaBancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCuentaBancoLayout.createSequentialGroup()
+                        .addGroup(panelCuentaBancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(ingresaSaldoButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(addCuentaBancoButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(retiraSaldoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCuentaBancoLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(53, 53, 53))))
         );
         panelCuentaBancoLayout.setVerticalGroup(
             panelCuentaBancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCuentaBancoLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
+            .addGroup(panelCuentaBancoLayout.createSequentialGroup()
+                .addComponent(jLabel2)
+                .addGap(23, 23, 23)
                 .addComponent(addCuentaBancoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ingresaSaldoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(retiraSaldoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64))
+                .addGap(53, 53, 53))
         );
 
         panelContent.add(panelCuentaBanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 190, 180));
@@ -123,6 +142,9 @@ public class VentanaGestor extends javax.swing.JDialog {
         trabajarButton.setForeground(new java.awt.Color(255, 255, 255));
         trabajarButton.setText("Trabajar");
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("TRABAJO");
+
         javax.swing.GroupLayout panelTrabajoLayout = new javax.swing.GroupLayout(panelTrabajo);
         panelTrabajo.setLayout(panelTrabajoLayout);
         panelTrabajoLayout.setHorizontalGroup(
@@ -131,13 +153,18 @@ public class VentanaGestor extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(panelTrabajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(trabajarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(addAntiguedadButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(addAntiguedadButton, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTrabajoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(59, 59, 59))
         );
         panelTrabajoLayout.setVerticalGroup(
             panelTrabajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTrabajoLayout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(trabajarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(addAntiguedadButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -169,31 +196,45 @@ public class VentanaGestor extends javax.swing.JDialog {
             }
         });
 
+        infoBtn.setBackground(new java.awt.Color(90, 37, 153));
+        infoBtn.setForeground(new java.awt.Color(255, 255, 255));
+        infoBtn.setText("Informacion Usuario");
+        infoBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                infoBtnActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("USUARIO");
+
         javax.swing.GroupLayout panelUsuarioLayout = new javax.swing.GroupLayout(panelUsuario);
         panelUsuario.setLayout(panelUsuarioLayout);
         panelUsuarioLayout.setHorizontalGroup(
             panelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelUsuarioLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUsuarioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(CambiaTrabajoButton, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                .addGroup(panelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(infoBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cambiaNombreButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+                    .addComponent(CambiaTrabajoButton, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(panelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelUsuarioLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(cambiaNombreButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUsuarioLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(60, 60, 60))
         );
         panelUsuarioLayout.setVerticalGroup(
             panelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUsuarioLayout.createSequentialGroup()
-                .addContainerGap(100, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addComponent(cambiaNombreButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(CambiaTrabajoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
-            .addGroup(panelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelUsuarioLayout.createSequentialGroup()
-                    .addGap(52, 52, 52)
-                    .addComponent(cambiaNombreButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(87, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(infoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         panelContent.add(panelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 170, 180));
@@ -216,6 +257,9 @@ public class VentanaGestor extends javax.swing.JDialog {
         addCuentaNetflixButton.setForeground(new java.awt.Color(255, 255, 255));
         addCuentaNetflixButton.setText("Añadir Cuenta Netflix");
 
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("CUENTA NETFLIX");
+
         javax.swing.GroupLayout panelCuentaNetflixLayout = new javax.swing.GroupLayout(panelCuentaNetflix);
         panelCuentaNetflix.setLayout(panelCuentaNetflixLayout);
         panelCuentaNetflixLayout.setHorizontalGroup(
@@ -227,50 +271,77 @@ public class VentanaGestor extends javax.swing.JDialog {
                     .addComponent(addCuentaNetflixButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cobrarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(panelCuentaNetflixLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelCuentaNetflixLayout.setVerticalGroup(
             panelCuentaNetflixLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCuentaNetflixLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(addCuentaNetflixButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(addPerfilButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cobrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+                .addContainerGap())
         );
 
         panelContent.add(panelCuentaNetflix, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, -1, 180));
 
-        jButton1.setText("X");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        getContentPane().add(panelContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 600, 550));
+
+        header.setBackground(new java.awt.Color(153, 0, 255));
+        header.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
+        header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                headerMouseDragged(evt);
+            }
+        });
+        header.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                headerMousePressed(evt);
             }
         });
 
-        jButton2.setText("-");
+        closeLbl.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        closeLbl.setText(" x ");
+        closeLbl.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        closeLbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                closeLblMouseClicked(evt);
+            }
+        });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelContent, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+        minLbl.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        minLbl.setText(" -");
+        minLbl.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minLbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                minLblMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
+        header.setLayout(headerLayout);
+        headerLayout.setHorizontalGroup(
+            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
+                .addGap(0, 556, Short.MAX_VALUE)
+                .addComponent(minLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(closeLbl))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(panelContent, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE))
+        headerLayout.setVerticalGroup(
+            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(closeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(minLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        getContentPane().add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -283,11 +354,31 @@ public class VentanaGestor extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_cambiaNombreButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void closeLblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeLblMouseClicked
+        e.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_closeLblMouseClicked
 
+    private void minLblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minLblMouseClicked
+        this.setState(Frame.ICONIFIED);
+    }//GEN-LAST:event_minLblMouseClicked
 
+    private int yMouse, xMouse;
+    
+    private void headerMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_headerMouseDragged
+
+    private void headerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_headerMousePressed
+
+    private void infoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoBtnActionPerformed
+        JOptionPane.showMessageDialog(this, u.toString());
+    }//GEN-LAST:event_infoBtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CambiaTrabajoButton;
@@ -296,11 +387,17 @@ public class VentanaGestor extends javax.swing.JDialog {
     private javax.swing.JButton addCuentaNetflixButton;
     private javax.swing.JButton addPerfilButton;
     private javax.swing.JButton cambiaNombreButton;
+    private javax.swing.JLabel closeLbl;
     private javax.swing.JButton cobrarButton;
+    private javax.swing.JPanel header;
+    private javax.swing.JButton infoBtn;
     private javax.swing.JButton ingresaSaldoButton;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel labelTitulo;
+    private javax.swing.JLabel minLbl;
     private javax.swing.JPanel panelContent;
     private javax.swing.JPanel panelCuentaBanco;
     private javax.swing.JPanel panelCuentaNetflix;
