@@ -158,12 +158,18 @@ public class VentanaAddUsuario extends JFrame {
 
         try {
             Usuario u = new Usuario(name, apellido);
-            GestorUsuario.addUsuario(u);
-            JOptionPane.showMessageDialog(this, "Usuario añadido correctamente.");
-            nombreInpt.setText("");
-            apellidoInpt.setText("");
-        } catch (IllegalArgumentException e) {
-            JOptionPane.showMessageDialog(this, e.getMessage());
+            String nombre = u.getNombre() + " " + u.getPrimerApellido();
+            
+            if (nombre.equalsIgnoreCase("usuario pruebas")) {
+                JOptionPane.showMessageDialog(this, "Nombre reservado para el correcto funcionamiento del programa.");
+            } else {
+                GestorUsuario.addUsuario(u);
+                JOptionPane.showMessageDialog(this, "Usuario añadido correctamente.");
+                nombreInpt.setText("");
+                apellidoInpt.setText("");
+            }
+        } catch (IllegalArgumentException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
         }
     }//GEN-LAST:event_crearBtnActionPerformed
 

@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.Objects;
+
 public class Trabajo {
     private String nombreTrabajo;
     private double sueldo;
@@ -64,4 +66,37 @@ public class Trabajo {
         }
         ingresaSalario(cuentaBanco);
     }
+
+    @Override
+    public String toString() {
+        return nombreTrabajo + ", sueldo=" + sueldo;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 89 * hash + Objects.hashCode(this.nombreTrabajo);
+        hash = 89 * hash + (int) (Double.doubleToLongBits(this.sueldo) ^ (Double.doubleToLongBits(this.sueldo) >>> 32));
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Trabajo other = (Trabajo) obj;
+        if (Double.doubleToLongBits(this.sueldo) != Double.doubleToLongBits(other.sueldo)) {
+            return false;
+        }
+        return Objects.equals(this.nombreTrabajo, other.nombreTrabajo);
+    }
+    
+    
 }

@@ -4,6 +4,7 @@ import gestores.GestorUsuario;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 
 public class CuentaBanco {
     private final ArrayList<Usuario> listaTitulares = new ArrayList<>();
@@ -57,6 +58,9 @@ public class CuentaBanco {
     }
 
     public void ingresaSaldo(double nSaldo) {
+        if(nSaldo <= 0){
+            throw new IllegalArgumentException("No puedes ingresar 0 o menos.");
+        }
         saldo += nSaldo;
     }
 
@@ -74,4 +78,33 @@ public class CuentaBanco {
         saldo -= nSaldo;
     }
 
+    @Override
+    public String toString() {
+        return "listaTitulares=" + listaTitulares + ", IBAN=" + IBAN + ", saldo=" + saldo;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 23 * hash + Objects.hashCode(this.IBAN);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final CuentaBanco other = (CuentaBanco) obj;
+        return Objects.equals(this.IBAN, other.IBAN);
+    }
+
+    
+    
 }
